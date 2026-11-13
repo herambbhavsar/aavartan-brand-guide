@@ -239,7 +239,7 @@ nav ul a:hover{opacity:1}
 #csvg .hl{stroke:var(--v)!important;stroke-width:6!important;opacity:1}
 #csvg .lbl{font-family:Phudu;font-weight:700;font-size:46px;fill:#888;letter-spacing:.04em}
 .lx{display:grid;grid-template-columns:300px minmax(0,1fr);gap:24px}.lx>*{min-width:0}
-@media(max-width:900px){.lx{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:1100px){.lx{grid-template-columns:minmax(0,1fr)}}
 .lx-h{color:#888;margin:4px 0 10px}
 .lx-opts{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:22px}
 .lx-gr{display:flex;gap:10px;flex-wrap:wrap}
@@ -533,6 +533,22 @@ body.navlt #navbg{background:linear-gradient(#f2f0ebe6,#f2f0eb99 55%,#f2f0eb00)}
 #feed{padding-bottom:clamp(70px,9vw,140px)}
 #pile{padding-bottom:clamp(40px,5vw,80px)}
 #events{padding-bottom:clamp(50px,6vw,90px)}
+.end .team ul.more{margin-top:10px;font-weight:600;font-size:clamp(12px,1vw,14px);color:#ffffff73}
+#library{padding-bottom:clamp(70px,9vw,140px);overflow:hidden}
+.lbrow{overflow:hidden;margin-top:14px}
+.lbt{display:flex;gap:14px;padding-right:14px;width:max-content;animation:lbm 90s linear infinite}
+.lbrow.r .lbt{animation-direction:reverse;animation-duration:110s}
+.lbrow:hover .lbt{animation-play-state:paused}
+.lbt img{height:clamp(160px,20vw,280px);width:auto;border-radius:var(--rad);filter:grayscale(1) contrast(1.15) brightness(.92);transition:filter .4s,transform .4s;cursor:zoom-in}
+.lbt img:hover{filter:none;transform:scale(1.03)}
+@keyframes lbm{to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.lbt{animation:none}}
+@media(max-width:700px){.lx-view{height:min(56vw,360px);min-height:240px}}
+.legacy{position:relative;background:#000;overflow:hidden;padding-top:clamp(70px,9vw,140px);padding-bottom:clamp(70px,9vw,140px);text-align:center}
+.legacy .lg-tag{position:absolute;left:50%;top:50%;width:min(110%,1500px);aspect-ratio:2/1;transform:translate(-50%,-50%) rotate(-6deg);background:#3f0b78;opacity:.6;-webkit-mask:url(el/tag_07.webp) center/contain no-repeat;mask:url(el/tag_07.webp) center/contain no-repeat;pointer-events:none}
+.legacy .lg-in{position:relative;z-index:1}
+.legacy .lg-h{font:400 clamp(22px,2.4vw,36px) Phudu;letter-spacing:.04em;text-transform:uppercase;color:#f2f0eb;margin-bottom:clamp(36px,5vw,70px)}
+#legemb svg{width:min(560px,78vw);height:auto;display:block;margin:0 auto}
 #grid{display:none}
 </style>
 </head>
@@ -554,6 +570,11 @@ body.navlt #navbg{background:linear-gradient(#f2f0ebe6,#f2f0eb99 55%,#f2f0eb00)}
 <section class="mani pad" id="about">
   <div class="lab">About</div>
   <p id="mani">Aavartan is the dance society of IIITDM Jabalpur. Breakers, hip hop heads, contemporary and classical dancers, and the whole crowd when the mass track drops. <span data-hl>One floor. Five styles. Zero excuses.</span></p>
+</section>
+
+<section class="legacy pad" id="legacy">
+  <div class="lg-tag" aria-hidden="true"></div>
+  <div class="lg-in"><div class="lg-h">The legacy</div><div id="legemb" role="img" aria-label="Aavartan, the dance society, since 2010"></div></div>
 </section>
 
 <section class="ev" id="events"><span class="sec-cred">Designed by Heramb Bhavsar</span>
@@ -691,8 +712,6 @@ body.navlt #navbg{background:linear-gradient(#f2f0ebe6,#f2f0eb99 55%,#f2f0eb00)}
       <img src="img/p_contemp.webp" alt="Contemporary poster" data-z="img/p_contemp.webp">
       <img src="img/p_classical.webp" alt="Classical poster" data-z="img/p_classical.webp">
       <img src="img/p_mass.webp" alt="Mass poster" data-z="img/p_mass.webp">
-      <img src="img/p_violet.webp" alt="Violet Footloose poster" data-z="img/p_violet.webp">
-      <img src="img/p_black.webp" alt="Black Footloose poster" data-z="img/p_black.webp">
     </div>
   </div>
 </section>
@@ -778,11 +797,17 @@ body.navlt #navbg{background:linear-gradient(#f2f0ebe6,#f2f0eb99 55%,#f2f0eb00)}
   </div>
 </section>
 
+<section id="library"><span class="sec-cred">Orientation 2026</span>
+  <div class="sh pad"><div><div class="lab v" style="margin-bottom:18px">Photo library</div><h2 class="reg scr">From the floor</h2></div><p class="note">Orientation night, the stage and the crew in their tees. Hover to bring the colour back, click any photo to open it.</p></div>
+  <div class="lbrow l"><div class="lbt"><img src="img/lib/5539.webp" width="347" height="520" alt="" loading="lazy" data-z="img/lib/5539.webp"><img src="img/lib/5557.webp" width="347" height="520" alt="" loading="lazy" data-z="img/lib/5557.webp"><img src="img/lib/5619.webp" width="780" height="520" alt="" loading="lazy" data-z="img/lib/5619.webp"><img src="img/lib/5623.webp" width="347" height="520" alt="" loading="lazy" data-z="img/lib/5623.webp"><img src="img/lib/5640.webp" width="347" height="520" alt="" loading="lazy" data-z="img/lib/5640.webp"><img src="img/lib/5657.webp" width="780" height="520" alt="" loading="lazy" data-z="img/lib/5657.webp"><img src="img/lib/5663.webp" width="780" height="520" alt="" loading="lazy" data-z="img/lib/5663.webp"><img src="img/lib/5717.webp" width="347" height="520" alt="" loading="lazy" data-z="img/lib/5717.webp"><img src="img/lib/5447.webp" width="347" height="520" alt="" loading="lazy" data-z="img/lib/5447.webp"><img src="img/lib/5456.webp" width="780" height="520" alt="" loading="lazy" data-z="img/lib/5456.webp"><img src="img/lib/6372.webp" width="780" height="520" alt="" loading="lazy" data-z="img/lib/6372.webp"><img src="img/lib/5898.webp" width="347" height="520" alt="" loading="lazy" data-z="img/lib/5898.webp"><img src="img/lib/5539.webp" width="347" height="520" alt="" loading="lazy" aria-hidden="true" data-z="img/lib/5539.webp"><img src="img/lib/5557.webp" width="347" height="520" alt="" loading="lazy" aria-hidden="true" data-z="img/lib/5557.webp"><img src="img/lib/5619.webp" width="780" height="520" alt="" loading="lazy" aria-hidden="true" data-z="img/lib/5619.webp"><img src="img/lib/5623.webp" width="347" height="520" alt="" loading="lazy" aria-hidden="true" data-z="img/lib/5623.webp"><img src="img/lib/5640.webp" width="347" height="520" alt="" loading="lazy" aria-hidden="true" data-z="img/lib/5640.webp"><img src="img/lib/5657.webp" width="780" height="520" alt="" loading="lazy" aria-hidden="true" data-z="img/lib/5657.webp"><img src="img/lib/5663.webp" width="780" height="520" alt="" loading="lazy" aria-hidden="true" data-z="img/lib/5663.webp"><img src="img/lib/5717.webp" width="347" height="520" alt="" loading="lazy" aria-hidden="true" data-z="img/lib/5717.webp"><img src="img/lib/5447.webp" width="347" height="520" alt="" loading="lazy" aria-hidden="true" data-z="img/lib/5447.webp"><img src="img/lib/5456.webp" width="780" height="520" alt="" loading="lazy" aria-hidden="true" data-z="img/lib/5456.webp"><img src="img/lib/6372.webp" width="780" height="520" alt="" loading="lazy" aria-hidden="true" data-z="img/lib/6372.webp"><img src="img/lib/5898.webp" width="347" height="520" alt="" loading="lazy" aria-hidden="true" data-z="img/lib/5898.webp"></div></div>
+  <div class="lbrow r"><div class="lbt"><img src="img/lib/5706.webp" width="347" height="520" alt="" loading="lazy" data-z="img/lib/5706.webp"><img src="img/lib/5731.webp" width="347" height="520" alt="" loading="lazy" data-z="img/lib/5731.webp"><img src="img/lib/5741.webp" width="347" height="520" alt="" loading="lazy" data-z="img/lib/5741.webp"><img src="img/lib/5771.webp" width="347" height="520" alt="" loading="lazy" data-z="img/lib/5771.webp"><img src="img/lib/5786.webp" width="347" height="520" alt="" loading="lazy" data-z="img/lib/5786.webp"><img src="img/lib/5790.webp" width="780" height="520" alt="" loading="lazy" data-z="img/lib/5790.webp"><img src="img/lib/5842.webp" width="347" height="520" alt="" loading="lazy" data-z="img/lib/5842.webp"><img src="img/lib/5848.webp" width="780" height="520" alt="" loading="lazy" data-z="img/lib/5848.webp"><img src="img/lib/5861.webp" width="347" height="520" alt="" loading="lazy" data-z="img/lib/5861.webp"><img src="img/lib/5888.webp" width="347" height="520" alt="" loading="lazy" data-z="img/lib/5888.webp"><img src="img/lib/5916.webp" width="780" height="520" alt="" loading="lazy" data-z="img/lib/5916.webp"><img src="img/lib/5919.webp" width="347" height="520" alt="" loading="lazy" data-z="img/lib/5919.webp"><img src="img/lib/5927.webp" width="780" height="520" alt="" loading="lazy" data-z="img/lib/5927.webp"><img src="img/lib/5933.webp" width="780" height="520" alt="" loading="lazy" data-z="img/lib/5933.webp"><img src="img/lib/6010.webp" width="347" height="520" alt="" loading="lazy" data-z="img/lib/6010.webp"><img src="img/lib/6024.webp" width="347" height="520" alt="" loading="lazy" data-z="img/lib/6024.webp"><img src="img/lib/6106.webp" width="780" height="520" alt="" loading="lazy" data-z="img/lib/6106.webp"><img src="img/lib/6174.webp" width="780" height="520" alt="" loading="lazy" data-z="img/lib/6174.webp"><img src="img/lib/6213.webp" width="780" height="520" alt="" loading="lazy" data-z="img/lib/6213.webp"><img src="img/lib/6280.webp" width="347" height="520" alt="" loading="lazy" data-z="img/lib/6280.webp"><img src="img/lib/5706.webp" width="347" height="520" alt="" loading="lazy" aria-hidden="true" data-z="img/lib/5706.webp"><img src="img/lib/5731.webp" width="347" height="520" alt="" loading="lazy" aria-hidden="true" data-z="img/lib/5731.webp"><img src="img/lib/5741.webp" width="347" height="520" alt="" loading="lazy" aria-hidden="true" data-z="img/lib/5741.webp"><img src="img/lib/5771.webp" width="347" height="520" alt="" loading="lazy" aria-hidden="true" data-z="img/lib/5771.webp"><img src="img/lib/5786.webp" width="347" height="520" alt="" loading="lazy" aria-hidden="true" data-z="img/lib/5786.webp"><img src="img/lib/5790.webp" width="780" height="520" alt="" loading="lazy" aria-hidden="true" data-z="img/lib/5790.webp"><img src="img/lib/5842.webp" width="347" height="520" alt="" loading="lazy" aria-hidden="true" data-z="img/lib/5842.webp"><img src="img/lib/5848.webp" width="780" height="520" alt="" loading="lazy" aria-hidden="true" data-z="img/lib/5848.webp"><img src="img/lib/5861.webp" width="347" height="520" alt="" loading="lazy" aria-hidden="true" data-z="img/lib/5861.webp"><img src="img/lib/5888.webp" width="347" height="520" alt="" loading="lazy" aria-hidden="true" data-z="img/lib/5888.webp"><img src="img/lib/5916.webp" width="780" height="520" alt="" loading="lazy" aria-hidden="true" data-z="img/lib/5916.webp"><img src="img/lib/5919.webp" width="347" height="520" alt="" loading="lazy" aria-hidden="true" data-z="img/lib/5919.webp"><img src="img/lib/5927.webp" width="780" height="520" alt="" loading="lazy" aria-hidden="true" data-z="img/lib/5927.webp"><img src="img/lib/5933.webp" width="780" height="520" alt="" loading="lazy" aria-hidden="true" data-z="img/lib/5933.webp"><img src="img/lib/6010.webp" width="347" height="520" alt="" loading="lazy" aria-hidden="true" data-z="img/lib/6010.webp"><img src="img/lib/6024.webp" width="347" height="520" alt="" loading="lazy" aria-hidden="true" data-z="img/lib/6024.webp"><img src="img/lib/6106.webp" width="780" height="520" alt="" loading="lazy" aria-hidden="true" data-z="img/lib/6106.webp"><img src="img/lib/6174.webp" width="780" height="520" alt="" loading="lazy" aria-hidden="true" data-z="img/lib/6174.webp"><img src="img/lib/6213.webp" width="780" height="520" alt="" loading="lazy" aria-hidden="true" data-z="img/lib/6213.webp"><img src="img/lib/6280.webp" width="347" height="520" alt="" loading="lazy" aria-hidden="true" data-z="img/lib/6280.webp"></div></div>
+</section>
+
 <footer class="end pad">
   <div class="lab v">Thank you — see you in the circle</div>
   <div class="huge">AAVARTAN</div>
   <div class="row lab"><span>The dance society of IIITDM Jabalpur</span><span>@aavartan_iiitdmj</span></div>
-  <div class="team"><div class="lab v">Aavartan design team</div><ul><li>Heramb Bhavsar</li><li>Akshita Gattu</li><li>Saara</li><li>Karan <i>(Amazer)</i></li><li>Rujula Dhake</li><li>Priya Gaur</li><li>Rachita Barve</li></ul></div>
+  <div class="team"><div class="lab v">Aavartan design team</div><ul><li>Heramb Bhavsar</li><li>Karan <i>(Amazer)</i></li><li>Akshita Gattu</li><li>Samridhna</li><li>Saara</li><li>Rujula Dhake</li><li>Priya Gaur</li><li>Rachita Barve</li></ul><ul class="more"><li>Khusi</li><li>Addidev</li><li>Anantan</li><li>Yashika</li><li>and more</li></ul></div>
   <div class="credline">Brand identity &amp; website designed by Heramb Bhavsar · 2026</div>
 </footer>
 <div class="tick rev"><div class="row" id="t4"></div></div>
@@ -912,7 +937,7 @@ const LK={
  co:{n:'Aavartan × Footloose',s:'Co-brand',el:[['mark',0,0],['word',0,0],['desc',0,0],['line',5232,0],['fl',5663,412+(1294-FLH)/2]],bb:[403,412,5663+FLW,1706],min:[45,200]}
 };
 const VER={og:{n:'OG gradient',c:['#8A0AE6',WHT],grad:1},vi:{n:'Violet',c:[VIO,VIO]},dv:{n:'Deep violet',c:['#360063','#360063']},wh:{n:'White',c:[WHT,WHT]},bk:{n:'Black',c:[BLK,BLK]},mx:{n:'Violet + white',c:[VIO,WHT]}};
-const GR={black:{n:'Black',c:'#000000',bg:'#000'},paper:{n:'Paper',c:PAP,bg:PAP},violet:{n:'Violet',c:VIO,bg:VIO},deep:{n:'Deep violet',c:'#360063',bg:'#360063'},photo:{n:'Photo',c:'#1c1c1c',bg:'#111 url(img/tbw_5643.webp)'}};
+const GR={black:{n:'Black',c:'#000000',bg:'#000'},paper:{n:'Paper',c:PAP,bg:PAP},violet:{n:'Violet',c:VIO,bg:VIO},deep:{n:'Deep violet',c:'#360063',bg:'#360063'},photo:{n:'Photo',c:'#1c1c1c',bg:'#050505 url(img/gr_5623.webp)'}};
 const lum=h=>{const v=[1,3,5].map(i=>parseInt(h.substr(i,2),16)/255).map(c=>c<=.03928?c/12.92:Math.pow((c+.055)/1.055,2.4));return .2126*v[0]+.7152*v[1]+.0722*v[2]};
 const cr=(a,b)=>{const A=lum(a),B=lum(b);return (Math.max(A,B)+.05)/(Math.min(A,B)+.05)};
 const ratio=(v,g)=>{const cs=VER[v].grad?['#8A0AE6',lum(GR[g].c)>.4?BLK:WHT]:VER[v].c;return Math.min(...cs.map(c=>cr(c,GR[g].c)))};
@@ -920,7 +945,7 @@ const okPair=(v,g)=>ratio(v,g)>=3;
 const bestFor=g=>Object.keys(VER).filter(v=>okPair(v,g)).sort((a,b)=>ratio(b,g)-ratio(a,g))[0];
 let FLDATA='img/fl_white.webp';
 fetch('img/fl_white.webp').then(r=>r.blob()).then(b=>{const fr=new FileReader();fr.onload=()=>FLDATA=fr.result;fr.readAsDataURL(b)}).catch(()=>{});
-function svgFor(k,v,o={}){const L=LK[k];let [mc,tc]=VER[v].c;const GD=VER[v].grad?'<defs><linearGradient id="ogg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#B800F7"/><stop offset="1" stop-color="#5410D6"/></linearGradient></defs>':'';if(GD){mc='url(#ogg)';if(o.light)tc=BLK}const pad=o.pad??X,b=L.bb;const vb=[b[0]-pad,b[1]-pad,b[2]-b[0]+2*pad,b[3]-b[1]+2*pad];
+function svgFor(k,v,o={}){const L=LK[k];let [mc,tc]=VER[v].c;const gid='ogg'+(svgFor.n=(svgFor.n||0)+1);const GD=VER[v].grad?`<defs><linearGradient id="${gid}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#B800F7"/><stop offset="1" stop-color="#5410D6"/></linearGradient></defs>`:'';if(GD){mc=`url(#${gid})`;if(o.light)tc=BLK}const pad=o.pad??X,b=L.bb;const vb=[b[0]-pad,b[1]-pad,b[2]-b[0]+2*pad,b[3]-b[1]+2*pad];
  let g='';for(const [t,dx,dy] of L.el){const tr=`transform="translate(${dx} ${dy})"`;
   if(t==='mark')g+=`<path ${tr} fill="${mc}" d="${LP.mark}"/>`;
   else if(t==='word')g+=`<path ${tr} fill="${tc}" d="${LP.word}"/>`;
@@ -931,6 +956,7 @@ function svgFor(k,v,o={}){const L=LK[k];let [mc,tc]=VER[v].c;const GD=VER[v].gra
  if(o.clear){const s=Math.max(vb[2],vb[3])/260;g+=`<g fill="none" stroke="#ff4fd8" stroke-width="${s}" stroke-dasharray="${s*6} ${s*4}"><rect x="${b[0]}" y="${b[1]}" width="${b[2]-b[0]}" height="${b[3]-b[1]}"/><rect x="${b[0]-X}" y="${b[1]-X}" width="${b[2]-b[0]+2*X}" height="${b[3]-b[1]+2*X}"/></g><g fill="#ff4fd8" font-family="Phudu" font-weight="700" font-size="${X*.32}"><text x="${b[0]-X*.62}" y="${(b[1]+b[3])/2}">x</text><text x="${(b[0]+b[2])/2}" y="${b[1]-X*.4}">x</text></g><g fill="#ff4fd855"><rect x="${b[0]-X}" y="${b[1]-X}" width="${X}" height="${X}"/></g>`}
  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${vb.join(' ')}" ${o.w?`width="${o.w}" height="${o.w*vb[3]/vb[2]}"`:''}>${GD}${g}</svg>`}
 window.__aavSvg=svgFor;
+{const e=document.getElementById('legemb');if(e)e.innerHTML=svgFor('em','wh',{pad:0});}
 // ----- construction -----
 const cs=$('#csvg');const NS='http://www.w3.org/2000/svg';
 // parse mark nodes (absolute M/L/C/H/V/Z)
@@ -982,11 +1008,11 @@ function sync(){if(!okPair(st.v,st.g)){const g2=Object.keys(GR).find(g=>okPair(s
  $$('#xg button').forEach(b=>{const ok=okPair(st.v,b.dataset.k);b.disabled=!ok;b.classList.toggle('on',b.dataset.k===st.g);b.title=`${GR[b.dataset.k].n} · ${ratio(st.v,b.dataset.k).toFixed(1)}:1`});
  $('#xview').style.setProperty('--g',GR[st.g].bg);
  const L=LK[st.k],bw=L.bb[2]-L.bb[0];const pxPerU=st.w/bw;const view=$('#xview');const full=(bw+2*X)*pxPerU;
- $('#xart').innerHTML=svgFor(st.k,st.v,{clear:st.clear,w:full,light:lum(GR[st.g].c)>.4});
- $('#xsz').textContent=`Size ${st.w} px`;
+ const fit=Math.min(full,(view.clientWidth||full)-32);$('#xart').innerHTML=svgFor(st.k,st.v,{clear:st.clear,w:fit,light:lum(GR[st.g].c)>.4});
+ $('#xsz').textContent=`Size ${st.w} px`+(fit<full?' · scaled to fit':'');
  const min=L.min[1];$('#xwarn').textContent=st.w<min?`Below the ${L.s.toLowerCase()} minimum (${min} px / ${L.min[0]} mm). ${st.k==='mk'?'':'Use the mark alone at this size.'}`:'';
 }
-$('#xrange').oninput=e=>{st.w=+e.target.value;sync()};$('#xclear').onchange=e=>{st.clear=e.target.checked;sync()};
+$('#xrange').oninput=e=>{st.w=+e.target.value;sync()};addEventListener('resize',()=>sync());$('#xclear').onchange=e=>{st.clear=e.target.checked;sync()};
 $('#xsvg').onclick=()=>dl(`aavartan-${LK[st.k].s.toLowerCase()}-${VER[st.v].n.toLowerCase().replace(/\W+/g,'-')}.svg`,svgFor(st.k,st.v,{embed:true,light:lum(GR[st.g].c)>.4}),'image/svg+xml');
 $('#xpng').onclick=()=>{const svg=svgFor(st.k,st.v,{embed:true,light:lum(GR[st.g].c)>.4});const L=LK[st.k];const bw=L.bb[2]-L.bb[0]+2*X,bh=L.bb[3]-L.bb[1]+2*X;const W2=Math.max(1200,st.w*3);const c=document.createElement('canvas');c.width=W2;c.height=Math.round(W2*bh/bw);const im=new Image();im.onload=()=>{c.getContext('2d').drawImage(im,0,0,c.width,c.height);dl(`aavartan-${LK[st.k].s.toLowerCase()}.png`,c.toDataURL('image/png'))};im.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg)};
 sync();
