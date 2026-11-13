@@ -590,6 +590,20 @@ nav .brand .cred{margin-left:6px!important;white-space:nowrap;line-height:1.3}
 #posters .cap{position:relative!important;left:auto!important;top:auto!important;z-index:3!important;padding:0 var(--m)}
 #posters .track{margin-top:0!important;align-self:flex-start}
 #posters .track img{height:min(62svh,760px)!important}
+/* fit tall pieces inside laptop screens */
+:root{--vh:calc(100svh - 150px)}
+.stage .post{display:flex;justify-content:center}
+.stage .post img{width:auto!important;max-width:100%;max-height:var(--vh);height:auto}
+.ms-main{width:min(100%,440px,calc(var(--vh) * 2 / 3))!important}
+.cmp{max-width:min(860px,100%,calc(var(--vh) * 1.5))!important}
+.lg-stage{min-height:0!important}
+.lg-stage svg{width:min(100%,400px,calc(var(--vh) - 190px))!important}
+.play{max-height:var(--vh)}
+.wall{height:min(90vh,820px,var(--vh))!important}
+.kit .pic{min-height:min(62vh,var(--vh))!important;max-height:var(--vh)}
+.lg-con{align-items:start!important}
+#legemb svg{width:min(560px,78vw,calc((100svh - 330px) * 1.5))!important}
+.legacy{padding-top:clamp(56px,7vw,120px)!important;padding-bottom:clamp(56px,7vw,120px)!important}
 #grid{display:none}
 </style>
 </head>
