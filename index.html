@@ -581,6 +581,7 @@ nav .brand .cred{margin-left:6px!important;white-space:nowrap;line-height:1.3}
 .t2img img{width:100%;height:100%;object-fit:cover;display:block}
 .t2img.fl{padding:22px}.t2img.fl img{object-fit:contain;height:auto}
 .t2u{font:600 11px Phudu,'Arial Narrow',sans-serif;letter-spacing:.12em;text-transform:uppercase;opacity:.55;margin-top:auto}
+.tick b.m{font-size:clamp(24px,2.8vw,40px)}
 #grid{display:none}
 </style>
 </head>
@@ -681,7 +682,7 @@ nav .brand .cred{margin-left:6px!important;white-space:nowrap;line-height:1.3}
       <div class="lx-view" id="xview"><div id="xart"></div></div>
       <div class="lx-bar">
         <label class="lx-sw"><input type="checkbox" id="xclear"> <span>Clear space</span></label>
-        <div class="lx-size"><span class="lab" id="xsz">Size 420 px</span><input type="range" id="xrange" min="24" max="900" value="420"></div>
+        <div class="lx-size"><span class="lab" id="xsz">Size 420 px</span><input type="range" id="xrange" min="80" max="900" value="420"></div>
         <div class="lx-btns"><button class="mbtn" id="xsvg">Download SVG</button><button class="mbtn alt" id="xpng">PNG</button></div>
       </div>
       <div class="lx-warn lab" id="xwarn"></div>
@@ -859,7 +860,7 @@ try{window.claude&&claude.use&&claude.use('downloads').then(d=>{window.__dls=d})
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 // tickers
 const DF=['Breaking','Classical','Hip hop','Mass','Contemporary','Popping','Locking','Krump','House','Freestyle','Kathak','Bharatanatyam'];
-['t1','t2','t3','t4'].forEach((id,n)=>{const L=DF.slice(n*3).concat(DF.slice(0,n*3));const tk=L.map((w,i)=>`<b class="${i%2?'s':'l'}">${w}</b><b class="s">✶</b>`).join('');$("#"+id).innerHTML=tk.repeat(4)});
+['t1','t2','t3','t4'].forEach((id,n)=>{const L=DF.slice(n*3).concat(DF.slice(0,n*3));const tk=L.map((w,i)=>`<b class="m">${w}</b><b class="s">✶</b>`).join('');$("#"+id).innerHTML=tk.repeat(4)});
 // progress + hero parallax
 const bar=$('#bar'),hi=$('#heroimg');
 addEventListener('scroll',()=>{const y=scrollY,h=document.documentElement.scrollHeight-innerHeight; bar.style.width=(y/h*100)+'%'; if(y<innerHeight) hi.style.transform=`scale(${1+y/innerHeight*.15}) translateY(${y*.2}px)`; hScroll(); mani();},{passive:true});
@@ -1043,7 +1044,12 @@ const st={k:'hz',v:'og',g:'black',w:Math.min(420,Math.round(innerWidth*.55)),cle
 const mk=(el,obj,key,lab)=>{el.innerHTML='';Object.entries(obj).forEach(([k2,o])=>{const b=document.createElement('button');b.textContent=o[lab];b.dataset.k=k2;b.onclick=()=>{st[key]=k2;sync()};el.appendChild(b)})};
 mk($('#xl'),LK,'k','n');mk($('#xv'),VER,'v','n');
 Object.entries(GR).forEach(([k2,o])=>{const b=document.createElement('button');b.style.setProperty('--g',o.bg);b.dataset.k=k2;b.innerHTML=`<span>${o.n}</span>`;b.title=o.n;b.onclick=()=>{st.g=k2;sync()};$('#xg').appendChild(b)});
-function sync(){if(!okPair(st.v,st.g)){const g2=Object.keys(GR).find(g=>okPair(st.v,g)&&g===st.g)||Object.keys(GR).filter(g=>okPair(st.v,g)).sort((a,b)=>ratio(st.v,b)-ratio(st.v,a))[0];st.g=g2}
+let lastK=null;
+function fitRange(reset){const L=LK[st.k],bw=L.bb[2]-L.bb[0],bh=L.bb[3]-L.bb[1];const v=$('#xview');const VW=Math.max(160,(v.clientWidth||600)-48),VH=Math.max(120,(v.clientHeight||400)-48);
+ const maxW=Math.floor(Math.min(VW*bw/(bw+2*X),VH*bw/(bh+2*X)));const mn=L.min[1],mx=Math.max(mn,maxW);const r=$('#xrange');r.min=mn;r.max=mx;
+ if(reset)st.w=Math.max(mn,Math.round(mx*.72));st.w=Math.min(mx,Math.max(mn,st.w));r.value=st.w}
+function sync(){if(st.k!==lastK){fitRange(true);lastK=st.k}
+ if(!okPair(st.v,st.g)){const g2=Object.keys(GR).find(g=>okPair(st.v,g)&&g===st.g)||Object.keys(GR).filter(g=>okPair(st.v,g)).sort((a,b)=>ratio(st.v,b)-ratio(st.v,a))[0];st.g=g2}
  $$('#xl button').forEach(b=>b.classList.toggle('on',b.dataset.k===st.k));$$('#xv button').forEach(b=>b.classList.toggle('on',b.dataset.k===st.v));
  $$('#xg button').forEach(b=>{const ok=okPair(st.v,b.dataset.k);b.disabled=!ok;b.classList.toggle('on',b.dataset.k===st.g);b.title=`${GR[b.dataset.k].n} · ${ratio(st.v,b.dataset.k).toFixed(1)}:1`});
  $('#xview').style.setProperty('--g',GR[st.g].bg);
@@ -1052,7 +1058,7 @@ function sync(){if(!okPair(st.v,st.g)){const g2=Object.keys(GR).find(g=>okPair(s
  $('#xsz').textContent=`Size ${st.w} px`+(fit<full?' · scaled to fit':'');
  const min=L.min[1];$('#xwarn').textContent=st.w<min?`Below the ${L.s.toLowerCase()} minimum (${min} px / ${L.min[0]} mm). ${st.k==='mk'?'':'Use the mark alone at this size.'}`:'';
 }
-$('#xrange').oninput=e=>{st.w=+e.target.value;sync()};addEventListener('resize',()=>sync());$('#xclear').onchange=e=>{st.clear=e.target.checked;sync()};
+$('#xrange').oninput=e=>{st.w=+e.target.value;sync()};addEventListener('resize',()=>{fitRange(false);sync()});$('#xclear').onchange=e=>{st.clear=e.target.checked;sync()};
 $('#xsvg').onclick=()=>dl(`aavartan-${LK[st.k].s.toLowerCase()}-${VER[st.v].n.toLowerCase().replace(/\W+/g,'-')}.svg`,svgFor(st.k,st.v,{embed:true,light:lum(GR[st.g].c)>.4}),'image/svg+xml');
 $('#xpng').onclick=()=>{const svg=svgFor(st.k,st.v,{embed:true,light:lum(GR[st.g].c)>.4});const L=LK[st.k];const bw=L.bb[2]-L.bb[0]+2*X,bh=L.bb[3]-L.bb[1]+2*X;const W2=Math.max(1200,st.w*3);const c=document.createElement('canvas');c.width=W2;c.height=Math.round(W2*bh/bw);const im=new Image();im.onload=()=>{c.getContext('2d').drawImage(im,0,0,c.width,c.height);dl(`aavartan-${LK[st.k].s.toLowerCase()}.png`,c.toDataURL('image/png'))};im.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg)};
 sync();
