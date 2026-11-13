@@ -396,7 +396,7 @@ nav ul a:hover{opacity:1}
 .ev-cas .head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:clamp(30px,4vw,60px)}
 .ev-cas .head h2{font-size:clamp(52px,7vw,120px);line-height:.95}
 .ev-cas .head .note{max-width:420px;color:#aaa;font-size:15px;line-height:1.7}
-.ev-stage{position:relative;aspect-ratio:100/66;margin-bottom:clamp(30px,5vw,80px)}
+.ev-stage{position:relative;aspect-ratio:100/66;margin-bottom:clamp(6px,1vw,16px)}
 .ev-stage:before{content:"";position:absolute;left:-50vw;right:-50vw;top:56%;bottom:-200px;background:var(--paper);z-index:0}
 .evc{position:absolute;margin:0;width:20%;z-index:1;cursor:zoom-in;transition:z-index 0s .2s}
 .evc .lab{display:block;color:#fff;margin-bottom:12px;font-size:clamp(10px,1vw,13px);white-space:nowrap}
@@ -532,7 +532,8 @@ body.navlt #navbg{background:linear-gradient(#f2f0ebe6,#f2f0eb99 55%,#f2f0eb00)}
 @media(max-width:700px){.play{height:420px!important}}
 #feed{padding-bottom:clamp(70px,9vw,140px)}
 #pile{padding-bottom:clamp(40px,5vw,80px)}
-#events{padding-bottom:clamp(50px,6vw,90px)}
+#events{padding-bottom:0}
+@media(max-width:800px){#events{padding-bottom:28px}}
 .end .team ul.more{margin-top:10px;font-weight:600;font-size:clamp(12px,1vw,14px);color:#ffffff73}
 #library{padding-bottom:clamp(70px,9vw,140px);overflow:hidden}
 .lbrow{overflow:hidden;margin-top:14px}
@@ -588,7 +589,7 @@ body.navlt #navbg{background:linear-gradient(#f2f0ebe6,#f2f0eb99 55%,#f2f0eb00)}
   </div>
 </section>
 <section class="cast pad" id="cast">
-  <div class="sh" style="padding-top:clamp(40px,5vw,80px)!important"><p class="note">Five styles, five characters. Pick one.</p><h2 class="blk" style="color:#360063;text-align:right">Dance<br>forms</h2></div>
+  <div class="sh" style="padding-top:clamp(24px,3vw,48px)!important"><p class="note">Five styles, five characters. Pick one.</p><h2 class="blk" style="color:#360063;text-align:right">Dance<br>forms</h2></div>
   <div class="chars" id="chars"></div>
   <div class="stage">
     <div class="post"><img id="pimg" src="img/p_break.webp" alt=""></div>
