@@ -1102,9 +1102,9 @@ function pick(i){const [k,n,c]=SS[i];$$('#stylebtns button').forEach((b,j)=>b.cl
 pick(0);
 $('#spv').parentElement.addEventListener('click',async()=>{const c=$('#sprev').style.getPropertyValue('--sc');try{await navigator.clipboard.writeText(c)}catch(e){}toast('Copied '+c)});
 // element library
-const EL=[...'00 07 13 16 17 20 25 26 28 31 36 37'.split(' ').map(n=>['tag','tag_'+n]),...'ta_01 ta_02 ta_03 ta_05 ta_06 ta_08 ta_12 tb_01 tb_02 tb_03 tb_06 tb_09 tb_10 tb_11'.split(' ').map(n=>['paper',n]),...'00 01 02 03 04 05 06 07 08 09'.split(' ').map(n=>['sticker','fs_'+n])];
+const EL=[...'dope cool break beat dance dance2'.split(' ').map(n=>['tag','tag_hb_'+n]),...'00 07 13 16 17 20 25 26 28 31 36 37'.split(' ').map(n=>['tag','tag_'+n]),...'ta_01 ta_02 ta_03 ta_05 ta_06 ta_08 ta_12 tb_01 tb_02 tb_03 tb_06 tb_09 tb_10 tb_11'.split(' ').map(n=>['paper',n]),...'00 01 02 03 04 05 06 07 08 09'.split(' ').map(n=>['sticker','fs_'+n])];
 let ef='all',ink='#000000';
-function drawEl(){$('#elgrid').innerHTML=EL.filter(e=>ef==='all'||e[0]===ef).map(([t,n])=>`<div class="el ${t==='tag'&&ink==='#FFFFFF'?'dark':''}" data-n="${n}">${t==='tag'?`<div class="im" style="--m:url(el/${n}.webp);--ink:${ink}"></div>`:`<img src="el/${n}.webp" alt="" loading="lazy">`}<span>${t} · ${n.replace(/^(tag_|fs_)/,'')}</span></div>`).join('');
+function drawEl(){$('#elgrid').innerHTML=EL.filter(e=>ef==='all'||e[0]===ef).map(([t,n])=>`<div class="el ${t==='tag'&&ink==='#FFFFFF'?'dark':''}" data-n="${n}">${t==='tag'?`<div class="im" style="--m:url(el/${n}.webp);--ink:${ink}"></div>`:`<img src="el/${n}.webp" alt="" loading="lazy">`}<span>${t} · ${n.replace(/^(tag_hb_|tag_|fs_)/,'').replace('dance2','dance II')}</span></div>`).join('');
  $$('#elgrid .el').forEach(d=>d.onclick=()=>{window.__aavDl&&window.__aavDl(`aavartan-${d.dataset.n}.webp`,null,null,`el/${d.dataset.n}.webp`)})}
 $$('#elt [data-f]').forEach(b=>b.onclick=()=>{ef=b.dataset.f;$$('#elt [data-f]').forEach(x=>x.classList.toggle('on',x===b));drawEl()});
 $$('#elt [data-ink]').forEach(b=>b.onclick=()=>{ink=b.dataset.ink;$$('#elt [data-ink]').forEach(x=>x.classList.toggle('on',x===b));drawEl()});
