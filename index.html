@@ -6,7 +6,7 @@
 <title>Aavartan — One floor. Five styles.</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Protest+Revolution&display=swap" rel="stylesheet">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -568,6 +568,19 @@ nav .brand .cred{margin-left:6px!important;white-space:nowrap;line-height:1.3}
 #posters,#posters .stick{background:#050505 url(img/blackwall.webp) center/cover!important}
 #posters .stick:after{content:"";position:absolute;inset:0;background:linear-gradient(#000a,#0000 25%,#0000 75%,#000c);pointer-events:none}
 #posters .track,#posters .cap{position:relative;z-index:2}
+.type2{grid-column:1/-1;margin-top:14px}
+.type2 .t2h{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:14px}
+.type2 .t2h .note{max-width:420px;color:#aaa;font-size:14px;line-height:1.6;margin:0}
+.t2g{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:800px){.t2g{grid-template-columns:1fr}}
+.t2c{background:#0b0b0b;border:1px solid #ffffff14;border-radius:var(--rad);padding:20px;display:flex;flex-direction:column;gap:14px;min-height:260px}
+.t2c .lab{opacity:.7}
+.t2s{font-size:clamp(34px,3.4vw,52px);line-height:1;color:var(--v)}
+.t2a{font-size:22px;opacity:.85}
+.t2img{flex:1;border-radius:calc(var(--rad) - 6px);overflow:hidden;background:#000;display:flex;align-items:center;justify-content:center;min-height:150px}
+.t2img img{width:100%;height:100%;object-fit:cover;display:block}
+.t2img.fl{padding:22px}.t2img.fl img{object-fit:contain;height:auto}
+.t2u{font:600 11px Phudu,'Arial Narrow',sans-serif;letter-spacing:.12em;text-transform:uppercase;opacity:.55;margin-top:auto}
 #grid{display:none}
 </style>
 </head>
@@ -708,7 +721,15 @@ nav .brand .cred{margin-left:6px!important;white-space:nowrap;line-height:1.3}
     <div class="sw ogsw rv" id="ogsw" data-hex="linear-gradient(135deg, #B800F7, #5410D6)" style="background:var(--og)"><span class="cp">Copy</span><span class="lab">OG gradient · #B800F7 → #5410D6</span><span class="vals">135° · Logo mark and hero moments only</span></div>
     <div class="styles rv" id="stylebtns"></div>
     <div class="sprev rv" id="sprev"><div class="art"><img id="spa" alt=""></div><div class="info"><div><div class="lab">Style colour</div><div class="blk" id="spn">Breaking</div></div><div class="vals" id="spv"></div></div><div class="pv"><img id="spp" alt=""></div></div>
-    <div class="typo rv"><div class="aa">Aa</div><div><div class="lab v">Phudu ExtraBold — shouts</div><div class="blk" style="font-size:clamp(50px,7vw,130px);margin:10px 0 26px">One floor.</div><div class="lab v">Phudu Regular — speaks</div><div class="reg" style="font-size:clamp(30px,4vw,70px);margin-top:10px">Events &amp; sessions</div></div></div>
+    <div class="typo rv"><div class="aa">Aa</div><div><div class="lab" style="opacity:.6;margin-bottom:10px">Primary typeface · Phudu</div><div class="lab v">Phudu ExtraBold — shouts</div><div class="blk" style="font-size:clamp(50px,7vw,130px);margin:10px 0 26px">One floor.</div><div class="lab v">Phudu Regular — speaks</div><div class="reg" style="font-size:clamp(30px,4vw,70px);margin-top:10px">Events &amp; sessions</div></div></div>
+    <div class="type2 rv">
+      <div class="t2h"><div class="lab v">Secondary typefaces</div><p class="note">Phudu does the work. These three add the street voice: one line, one hit, never body copy.</p></div>
+      <div class="t2g">
+        <div class="t2c"><div class="lab">Protest Revolution</div><div class="t2s" style="font-family:'Protest Revolution',Phudu,sans-serif">Spin on your head</div><div class="t2a" style="font-family:'Protest Revolution',Phudu,sans-serif">Aa Bb Cc 0123</div><div class="t2u">Taglines and poster callouts</div></div>
+        <div class="t2c"><div class="lab">Skylight Graffiti</div><div class="t2img"><img src="img/type_skylight.webp" alt="Skylight Graffiti lettering: Aavartan Dance Society" loading="lazy"></div><div class="t2u">Hand tags, hero walls and stickers</div></div>
+        <div class="t2c"><div class="lab">Footloose wordmark</div><div class="t2img fl"><img src="img/fl_white.webp" alt="Footloose wordmark" loading="lazy"></div><div class="t2u">Footloose battle only, never retyped</div></div>
+      </div>
+    </div>
   </div>
 </section>
 
