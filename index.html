@@ -475,7 +475,7 @@ nav .brand .cred{font:600 9px Phudu;letter-spacing:.12em;opacity:.6;margin-left:
 @keyframes cue{50%{transform:translateY(5px)}}
 @media(max-width:700px){.cue{display:none}.hero2{height:70svh;min-height:420px}}
 /* side margins + grid lines */
-:root{--m:clamp(24px,10vw,180px)}
+:root{--m:clamp(28px,12vw,230px)}
 .pad{padding-left:var(--m)!important;padding-right:var(--m)!important}
 #grid{position:fixed;inset:0;pointer-events:none;z-index:45;mix-blend-mode:difference}
 #grid i{position:absolute;top:0;bottom:0;width:1px;background:#ffffff1f}
@@ -555,6 +555,8 @@ body.navlt #navbg{background:linear-gradient(#f2f0ebe6,#f2f0eb99 55%,#f2f0eb00)}
 @media(max-width:600px){.end .team ul{grid-template-columns:repeat(2,1fr)}}
 .end .team li.am{grid-column:-2}
 nav .brand .cred{margin-left:2px!important;white-space:nowrap}
+.evtag{position:absolute;aspect-ratio:3/2;background:var(--c);-webkit-mask:var(--t) center/contain no-repeat;mask:var(--t) center/contain no-repeat;pointer-events:none;z-index:0}
+@media(max-width:800px){.evtag{display:none}}
 #grid{display:none}
 </style>
 </head>
@@ -587,7 +589,7 @@ nav .brand .cred{margin-left:2px!important;white-space:nowrap}
   <div class="ev-hero"><img src="img/ev_stage.webp" alt="Aavartan crew on stage" id="evbg"><h2 class="reg">Events &amp;<br>sessions</h2></div>
   <div class="ev-cas pad">
     <div class="head"><h2 class="reg">What we<br>put on</h2><p class="note">Open sessions, grooving evenings, auditions, showcases and Footloose. Every one gets its own poster. Hover to pull one out, click to open it.</p></div>
-    <div class="ev-stage" id="evstage"><figure class="evc" style="left:3.6%;top:51.5%" data-sp="0.1" data-z="img/old_1_67.webp"><span class="lab">Groove session <b>·</b> 16th · LHTC</span><img src="img/old_1_67.webp" alt="Groove session poster" loading="lazy"></figure><figure class="evc" style="left:18.5%;top:32.8%" data-sp="0.18" data-z="img/old_1_229.webp"><span class="lab">Open session <b>·</b> 30 Nov · LHTC</span><img src="img/old_1_229.webp" alt="Open session poster" loading="lazy"></figure><figure class="evc" style="left:37.5%;top:18.8%" data-sp="0.26" data-z="img/old_1_172.webp"><span class="lab">Dance session <b>·</b> 10 Oct · OAT</span><img src="img/old_1_172.webp" alt="Dance session poster" loading="lazy"></figure><figure class="evc" style="left:53%;top:42%" data-sp="0.14" data-z="img/old_1_121.webp"><span class="lab">Auditions <b>·</b> 2026</span><img src="img/old_1_121.webp" alt="Auditions poster" loading="lazy"></figure><figure class="evc" style="left:64%;top:7.8%" data-sp="0.3" data-z="img/old_3_135.webp"><span class="lab">Showcase <b>·</b> Join us</span><img src="img/old_3_135.webp" alt="Showcase poster" loading="lazy"></figure><figure class="evc" style="left:76.6%;top:33.7%" data-sp="0.2" data-z="img/old_3_12.webp"><span class="lab">Footloose <b>·</b> 18 Apr · Solo battle</span><img src="img/old_3_12.webp" alt="Footloose poster" loading="lazy"></figure></div>
+    <div class="ev-stage" id="evstage"><i class="evtag" style="--t:url(el/tag_00.webp);left:30%;top:66%;width:22%;--c:#000;opacity:.16;transform:rotate(-8deg)"></i><i class="evtag" style="--t:url(el/tag_17.webp);left:74%;top:79%;width:20%;--c:#9C33C5;opacity:.4;transform:rotate(6deg)"></i><i class="evtag" style="--t:url(el/tag_07.webp);left:1%;top:12%;width:16%;--c:#9C33C5;opacity:.45;transform:rotate(-5deg)"></i><i class="evtag" style="--t:url(el/tag_31.webp);left:88%;top:6%;width:11%;--c:#fff;opacity:.16;transform:rotate(8deg)"></i><i class="evtag" style="--t:url(el/tag_25.webp);left:-2%;top:88%;width:14%;--c:#000;opacity:.12;transform:rotate(4deg)"></i><figure class="evc" style="left:3.6%;top:51.5%" data-sp="0.1" data-z="img/old_1_67.webp"><span class="lab">Groove session <b>·</b> 16th · LHTC</span><img src="img/old_1_67.webp" alt="Groove session poster" loading="lazy"></figure><figure class="evc" style="left:18.5%;top:32.8%" data-sp="0.18" data-z="img/old_1_229.webp"><span class="lab">Open session <b>·</b> 30 Nov · LHTC</span><img src="img/old_1_229.webp" alt="Open session poster" loading="lazy"></figure><figure class="evc" style="left:37.5%;top:18.8%" data-sp="0.26" data-z="img/old_1_172.webp"><span class="lab">Dance session <b>·</b> 10 Oct · OAT</span><img src="img/old_1_172.webp" alt="Dance session poster" loading="lazy"></figure><figure class="evc" style="left:53%;top:42%" data-sp="0.14" data-z="img/old_1_121.webp"><span class="lab">Auditions <b>·</b> 2026</span><img src="img/old_1_121.webp" alt="Auditions poster" loading="lazy"></figure><figure class="evc" style="left:64%;top:7.8%" data-sp="0.3" data-z="img/old_3_135.webp"><span class="lab">Showcase <b>·</b> Join us</span><img src="img/old_3_135.webp" alt="Showcase poster" loading="lazy"></figure><figure class="evc" style="left:76.6%;top:33.7%" data-sp="0.2" data-z="img/old_3_12.webp"><span class="lab">Footloose <b>·</b> 18 Apr · Solo battle</span><img src="img/old_3_12.webp" alt="Footloose poster" loading="lazy"></figure></div>
   </div>
 </section>
 <section class="cast pad" id="cast">
