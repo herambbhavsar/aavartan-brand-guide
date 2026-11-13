@@ -529,6 +529,10 @@ body.navlt #navbg{background:linear-gradient(#f2f0ebe6,#f2f0eb99 55%,#f2f0eb00)}
 .ml .ph{aspect-ratio:auto;background:#e4e2dc}
 .ml img{height:auto;opacity:0;transition:opacity .5s,transform .9s cubic-bezier(.2,.8,.2,1)}
 .ml img.ok{opacity:1}
+@media(max-width:700px){.play{height:420px!important}}
+#feed{padding-bottom:clamp(70px,9vw,140px)}
+#pile{padding-bottom:clamp(40px,5vw,80px)}
+#events{padding-bottom:clamp(50px,6vw,90px)}
 #grid{display:none}
 </style>
 </head>
@@ -710,7 +714,7 @@ body.navlt #navbg{background:linear-gradient(#f2f0ebe6,#f2f0eb99 55%,#f2f0eb00)}
   <div><div class="n">1v1</div><div class="lab" style="margin-top:16px">Footloose battle format</div></div>
 </section>
 
-<section class="pad">
+<section class="pad" id="feed">
   <div class="sh"><h2 class="reg scr">On the feed</h2><p class="note">Stories, drops and calls to the floor — same treatment, same violet.</p></div>
   <img class="full rv" src="img/stories.webp" alt="Instagram stories" data-z="img/stories.webp">
   <div class="g"></div>
@@ -851,7 +855,7 @@ $$('.ch,.stage .post').forEach(el=>{el.classList.add('tilt');el.addEventListener
 // ===== magnetic buttons =====
 $$('.stage .ctl button,.toggle button,.wall .act button').forEach(b=>{b.addEventListener('pointermove',e=>{const r=b.getBoundingClientRect();b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.3}px,${(e.clientY-r.top-r.height/2)*.3}px)`});b.addEventListener('pointerleave',()=>b.style.transform='')});
 // ===== poster pile =====
-const play=$('#play');const PP=[['poster_move',.03,.05,-7],['p_break',.24,.02,5],['poster_drop',.46,.07,-4],['p_hiphop',.68,.03,6],['p_contemp',.06,.47,4],['poster_05',.3,.44,-6],['p_classical',.52,.5,3],['p_mass',.73,.45,-5],['p_violet',.4,.25,2],['old_3_12',.15,.27,-9],['old_1_121',.62,.24,8],['old_3_135',.84,.62,-3]].map(([k,x,y,r])=>[k,.16+x*.62,.07+y*.7,r*1.3]);let Z=10;
+const play=$('#play');const PP=[['poster_move',.03,.05,-7],['p_break',.24,.02,5],['poster_drop',.46,.07,-4],['p_hiphop',.68,.03,6],['p_contemp',.06,.47,4],['poster_05',.3,.44,-6],['p_classical',.52,.5,3],['p_mass',.73,.45,-5],['p_violet',.4,.25,2],['old_3_12',.15,.27,-9],['old_1_121',.62,.24,8],['old_3_135',.84,.62,-3]].map(([k,x,y,r])=>[k,.12+x*.7,.15+y*.72,r*1.3]);let Z=10;
 PP.forEach(([k,x,y,r])=>{const im=new Image();im.src=`img/${k}.webp`;im.alt='';im.draggable=false;im.style.left=x*100+'%';im.style.top=y*100+'%';im.style.transform=`rotate(${r}deg)`;play.appendChild(im);let sx,sy,ox,oy,m=false,vx=0,vy=0,lx,ly;
  im.addEventListener('pointerdown',e=>{m=true;im.setPointerCapture(e.pointerId);im.style.zIndex=++Z;sx=lx=e.clientX;sy=ly=e.clientY;ox=im.offsetLeft;oy=im.offsetTop;im.style.transition='transform .15s';im.style.transform=`rotate(${r*.3}deg) scale(1.06)`});
  im.addEventListener('pointermove',e=>{if(!m)return;vx=e.clientX-lx;vy=e.clientY-ly;lx=e.clientX;ly=e.clientY;im.style.left=ox+e.clientX-sx+'px';im.style.top=oy+e.clientY-sy+'px'});
