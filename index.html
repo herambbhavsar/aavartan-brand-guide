@@ -499,6 +499,11 @@ nav .brand .cred{font:600 9px Phudu;letter-spacing:.12em;opacity:.6;margin-left:
 .play{margin:0 var(--m);height:min(52vw,600px)!important;border-radius:var(--rad);background:#0b0b0b!important;border:1px solid #ffffff14}
 .play img{width:clamp(84px,10vw,160px)!important}
 #pile .sh{padding-left:var(--m)!important;padding-right:var(--m)!important}
+
+/* grid lines live in section backgrounds, under components */
+section,footer{--gl:#ffffff17;background-image:linear-gradient(90deg,#0000 calc(var(--m) - 1px),var(--gl) calc(var(--m) - 1px),var(--gl) var(--m),#0000 var(--m)),linear-gradient(90deg,#0000 calc(calc(var(--m) + (100% - 2*var(--m))*0.25) - 1px),var(--gl) calc(calc(var(--m) + (100% - 2*var(--m))*0.25) - 1px),var(--gl) calc(var(--m) + (100% - 2*var(--m))*0.25),#0000 calc(var(--m) + (100% - 2*var(--m))*0.25)),linear-gradient(90deg,#0000 calc(calc(var(--m) + (100% - 2*var(--m))*0.5) - 1px),var(--gl) calc(calc(var(--m) + (100% - 2*var(--m))*0.5) - 1px),var(--gl) calc(var(--m) + (100% - 2*var(--m))*0.5),#0000 calc(var(--m) + (100% - 2*var(--m))*0.5)),linear-gradient(90deg,#0000 calc(calc(var(--m) + (100% - 2*var(--m))*0.75) - 1px),var(--gl) calc(calc(var(--m) + (100% - 2*var(--m))*0.75) - 1px),var(--gl) calc(var(--m) + (100% - 2*var(--m))*0.75),#0000 calc(var(--m) + (100% - 2*var(--m))*0.75)),linear-gradient(90deg,#0000 calc(calc(100% - var(--m) + 1px) - 1px),var(--gl) calc(calc(100% - var(--m) + 1px) - 1px),var(--gl) calc(100% - var(--m) + 1px),#0000 calc(100% - var(--m) + 1px))!important}
+section.light,section.cast,.ev-after{--gl:#00000014}
+#grid{display:none}
 </style>
 </head>
 <body>
@@ -748,7 +753,7 @@ nav .brand .cred{font:600 9px Phudu;letter-spacing:.12em;opacity:.6;margin-left:
   <div class="credline">Brand identity &amp; website designed by Heramb Bhavsar · 2026</div>
 </footer>
 <div class="tick rev"><div class="row" id="t4"></div></div>
-<div id="grid" aria-hidden="true"><i class="e" style="left:var(--m)"></i><i style="left:calc(var(--m) + (100% - 2*var(--m))*.25)"></i><i style="left:calc(var(--m) + (100% - 2*var(--m))*.5)"></i><i style="left:calc(var(--m) + (100% - 2*var(--m))*.75)"></i><i class="e" style="right:var(--m)"></i></div><div id="cur"></div><div id="toast"></div><div id="lb"><img alt=""></div>
+<div id="cur"></div><div id="toast"></div><div id="lb"><img alt=""></div>
 
 <script>
 try{window.claude&&claude.use&&claude.use('downloads').then(d=>{window.__dls=d}).catch(()=>{})}catch(e){}
