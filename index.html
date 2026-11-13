@@ -477,6 +477,7 @@ nav .brand .cred{font:600 9px Phudu,'Arial Narrow',Arial,sans-serif;letter-spaci
 .wallanim{position:absolute;inset:0;overflow:hidden}
 .wallanim .wf{position:absolute;inset:-2%;width:104%;height:104%;object-fit:cover;opacity:0}
 .wallanim .wf.on{opacity:1}
+.wallanim .wfc{position:absolute;inset:0;width:100%;height:100%;opacity:0;pointer-events:none}.wallanim .wfc.on{opacity:1}
 .hb{position:absolute;left:0;right:0;bottom:clamp(26px,4vw,48px);display:flex;justify-content:space-between;align-items:flex-end;gap:20px;z-index:3;line-height:1.7}
 .cue{position:absolute;left:50%;bottom:clamp(26px,4vw,48px);transform:translateX(-50%);z-index:3;opacity:.8}
 .cue i{font-style:normal;display:inline-block;animation:cue 1.4s ease-in-out infinite}
@@ -616,7 +617,7 @@ nav .brand .cred{margin-left:6px!important;white-space:nowrap;line-height:1.3}
 </nav><div class="navdrop" id="nd0"><a href="#about">About</a><a href="#logo">Logo</a><a href="#system">Colour & type</a></div><div class="navdrop" id="nd1"><a href="#cast">Dance forms</a><a href="#mascot">Mascot</a></div><div class="navdrop" id="nd2"><a href="#events">Events</a><a href="#posters">Poster wall</a><a href="#archive">Archive</a></div><div class="navdrop" id="nd3"><a href="#wild">Mockups</a><a href="#merch">The kit</a><a href="#elements">Elements</a></div><div class="mnav" id="mnav"><div class="mg"><div class="lab">Brand</div><a href="#about">About</a><a href="#logo">Logo</a><a href="#system">Colour & type</a></div><div class="mg"><div class="lab">Characters</div><a href="#cast">Dance forms</a><a href="#mascot">Mascot</a></div><div class="mg"><div class="lab">Posters</div><a href="#events">Events</a><a href="#posters">Poster wall</a><a href="#archive">Archive</a></div><div class="mg"><div class="lab">In use</div><a href="#wild">Mockups</a><a href="#merch">The kit</a><a href="#elements">Elements</a></div><div class="mg"><a href="#crew">Crew</a></div></div>
 
 <header class="hero hero2" id="top">
-  <div id="heroimg" class="wallanim"><img class="wf on" fetchpriority="high" src="img/wall_0.webp" srcset="img/m/wall_0.webp 720w, img/wall_0.webp 1600w" sizes="100vw" alt="Aavartan Dance Society graffiti tag"><img class="wf" data-src="img/wall_1.webp" data-srcset="img/m/wall_1.webp 720w, img/wall_1.webp 1600w" sizes="100vw" alt=""><img class="wf" data-src="img/wall_2.webp" data-srcset="img/m/wall_2.webp 720w, img/wall_2.webp 1600w" sizes="100vw" alt=""><img class="wf" data-src="img/wall_3.webp" data-srcset="img/m/wall_3.webp 720w, img/wall_3.webp 1600w" sizes="100vw" alt=""><img class="wf" data-src="img/wall_4.webp" data-srcset="img/m/wall_4.webp 720w, img/wall_4.webp 1600w" sizes="100vw" alt=""><img class="wf" data-src="img/wall_5.webp" data-srcset="img/m/wall_5.webp 720w, img/wall_5.webp 1600w" sizes="100vw" alt=""></div><img id="herorev" alt="" style="display:none"><div id="hemb" style="display:none"></div>
+  <div id="heroimg" class="wallanim"><img class="wf on" fetchpriority="high" src="img/wall_0.webp" srcset="img/m/wall_0.webp 1000w, img/wall_0.webp 1600w" sizes="100vw" alt="Aavartan Dance Society graffiti tag"><img class="wf" data-src="img/wall_1.webp" data-srcset="img/m/wall_1.webp 1000w, img/wall_1.webp 1600w" sizes="100vw" alt=""><img class="wf" data-src="img/wall_2.webp" data-srcset="img/m/wall_2.webp 1000w, img/wall_2.webp 1600w" sizes="100vw" alt=""><img class="wf" data-src="img/wall_3.webp" data-srcset="img/m/wall_3.webp 1000w, img/wall_3.webp 1600w" sizes="100vw" alt=""><img class="wf" data-src="img/wall_4.webp" data-srcset="img/m/wall_4.webp 1000w, img/wall_4.webp 1600w" sizes="100vw" alt=""><img class="wf" data-src="img/wall_5.webp" data-srcset="img/m/wall_5.webp 1000w, img/wall_5.webp 1600w" sizes="100vw" alt=""></div><img id="herorev" alt="" style="display:none"><div id="hemb" style="display:none"></div>
   <div class="hb pad"><div class="lab">The dance society of IIITDM Jabalpur<br><span style="opacity:.6">Since 2010</span></div><div class="lab" style="text-align:right">Breaking · Classical · Hip hop<br>Mass · Contemporary</div></div>
   <div class="cue lab">Scroll <i>↓</i></div>
 </header>
@@ -1153,9 +1154,13 @@ function build(){st.innerHTML='';if(mq.matches){const tr=document.createElement(
 build();mq.addEventListener('change',build)})();
 
 // hero stop-motion wall frames
-(function(){const fr=$$('#heroimg .wf');let i=0,last=0;const hero=$('.hero2');
-function tick(t){const r=hero.getBoundingClientRect();if(r.bottom>0&&t-last>170){last=t;let n=i;do{n=(n+1)%fr.length}while(n!==i&&!(fr[n].complete&&fr[n].naturalWidth));if(n===i){requestAnimationFrame(tick);return}fr[i].classList.remove('on');i=n;const f=fr[i];f.style.transform=`translate(${(Math.random()-.5)*10}px,${(Math.random()-.5)*8}px) rotate(${(Math.random()-.5)*.6}deg)`;f.classList.add('on')}requestAnimationFrame(tick)}
-requestAnimationFrame(tick)})();
+(function(){const box=$('#heroimg');const all=[...box.querySelectorAll('.wf')];const urls=all.map(f=>f.dataset.src||f.getAttribute('src'));all.forEach(f=>{if(!f.classList.contains('on'))f.remove()});
+const cv=document.createElement('canvas');cv.className='wfc';cv.setAttribute('aria-hidden','true');box.appendChild(cv);const cx=cv.getContext('2d');const hero=$('.hero2');const imgs=[];let i=0,last=0,dpr=1;
+function size(){dpr=Math.min(devicePixelRatio||1,2);cv.width=Math.round(box.clientWidth*dpr);cv.height=Math.round(box.clientHeight*dpr)}
+function draw(im){const W=cv.width,H=cv.height;const s=Math.max(W/im.naturalWidth,H/im.naturalHeight)*1.04;const w=im.naturalWidth*s,h=im.naturalHeight*s;cx.setTransform(1,0,0,1,0,0);cx.clearRect(0,0,W,H);cx.translate(W/2+(Math.random()-.5)*10*dpr,H/2+(Math.random()-.5)*8*dpr);cx.rotate((Math.random()-.5)*.6*Math.PI/180);cx.drawImage(im,-w/2,-h/2,w,h)}
+function tick(t){const ok=imgs.filter(Boolean);if(ok.length>1&&t-last>170&&hero.getBoundingClientRect().bottom>0){last=t;i=(i+1)%ok.length;draw(ok[i]);cv.classList.add('on')}requestAnimationFrame(tick)}
+addEventListener('resize',size);
+addEventListener('load',()=>setTimeout(()=>{size();const mob=box.clientWidth*dpr<=1000;urls.forEach((u,k)=>{const im=new Image();im.decoding='async';im.onload=()=>{imgs[k]=im};im.src=mob?u.replace('img/','img/m/'):u});requestAnimationFrame(tick)},400));})();
 
 </script>
 <script>(()=>{const lum=c=>{const m=c.match(/\d+(\.\d+)?/g);if(!m||(m[3]!==undefined&&+m[3]<.5))return null;return(.299*m[0]+.587*m[1]+.114*m[2])/255};
