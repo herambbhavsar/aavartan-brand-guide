@@ -26,7 +26,7 @@ img{display:block;max-width:100%}
 .pad{padding-left:clamp(20px,6vw,96px);padding-right:clamp(20px,6vw,96px)}
 
 /* nav */
-nav{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;justify-content:space-between;align-items:center;padding:16px clamp(20px,4vw,56px);mix-blend-mode:difference}
+nav{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;justify-content:space-between;align-items:center;padding:16px var(--m,56px);mix-blend-mode:difference}
 nav a{color:#fff;text-decoration:none}
 nav .brand{display:flex;gap:10px;align-items:center;font-family:Phudu;font-weight:800;letter-spacing:.06em;font-size:18px}
 nav .brand img{width:24px}
@@ -462,6 +462,24 @@ nav .brand .cred{font:600 9px Phudu;letter-spacing:.12em;opacity:.6;margin-left:
 .credline{margin-top:28px;font:600 10px Phudu;letter-spacing:.14em;text-transform:uppercase;opacity:.55}
 .sec-cred{position:absolute;right:clamp(20px,6vw,96px);bottom:18px;font:600 9px Phudu;letter-spacing:.14em;text-transform:uppercase;opacity:.45;z-index:2;pointer-events:none}
 #logo,#wild,#mascot,#elements,#events{position:relative}
+
+/* hero v3: stop-motion wall tag */
+.hero2{background:#111}
+.hero2:after{background:linear-gradient(#0000 60%,#000c)}
+.wallanim{position:absolute;inset:0;overflow:hidden}
+.wallanim .wf{position:absolute;inset:-2%;width:104%;height:104%;object-fit:cover;opacity:0}
+.wallanim .wf.on{opacity:1}
+.hb{position:absolute;left:0;right:0;bottom:clamp(26px,4vw,48px);display:flex;justify-content:space-between;align-items:flex-end;gap:20px;z-index:3;line-height:1.7}
+.cue{position:absolute;left:50%;bottom:clamp(26px,4vw,48px);transform:translateX(-50%);z-index:3;opacity:.8}
+.cue i{font-style:normal;display:inline-block;animation:cue 1.4s ease-in-out infinite}
+@keyframes cue{50%{transform:translateY(5px)}}
+@media(max-width:700px){.cue{display:none}.hero2{height:70svh;min-height:420px}}
+/* side margins + grid lines */
+:root{--m:clamp(24px,7.5vw,128px)}
+.pad{padding-left:var(--m)!important;padding-right:var(--m)!important}
+#grid{position:fixed;inset:0;pointer-events:none;z-index:45;mix-blend-mode:difference}
+#grid i{position:absolute;top:0;bottom:0;width:1px;background:#ffffff1f}
+#grid i.e{background:#ffffff38}
 </style>
 </head>
 <body>
@@ -471,13 +489,10 @@ nav .brand .cred{font:600 9px Phudu;letter-spacing:.12em;opacity:.6;margin-left:
   <ul><li class="grp" data-g="0"><a href="#about">Brand <i>▾</i></a></li><li class="grp" data-g="1"><a href="#cast">Characters <i>▾</i></a></li><li class="grp" data-g="2"><a href="#events">Posters <i>▾</i></a></li><li class="grp" data-g="3"><a href="#wild">In use <i>▾</i></a></li><li class="grp" data-g="4"><a href="#pile">Play <i>▾</i></a></li><li><a href="#crew">Crew</a></li></ul><button class="burger" id="burger" aria-label="Menu"><span></span><span></span></button>
 </nav><div class="navdrop" id="nd0"><a href="#about">About</a><a href="#logo">Logo</a><a href="#system">Colour & type</a></div><div class="navdrop" id="nd1"><a href="#cast">Dance forms</a><a href="#mascot">Mascot</a></div><div class="navdrop" id="nd2"><a href="#events">Events</a><a href="#posters">Poster wall</a><a href="#archive">Archive</a></div><div class="navdrop" id="nd3"><a href="#wild">Mockups</a><a href="#merch">The kit</a><a href="#elements">Elements</a></div><div class="navdrop" id="nd4"><a href="#pile">Poster pile</a><a href="#tag">Tag the wall</a></div><div class="mnav" id="mnav"><div class="mg"><div class="lab">Brand</div><a href="#about">About</a><a href="#logo">Logo</a><a href="#system">Colour & type</a></div><div class="mg"><div class="lab">Characters</div><a href="#cast">Dance forms</a><a href="#mascot">Mascot</a></div><div class="mg"><div class="lab">Posters</div><a href="#events">Events</a><a href="#posters">Poster wall</a><a href="#archive">Archive</a></div><div class="mg"><div class="lab">In use</div><a href="#wild">Mockups</a><a href="#merch">The kit</a><a href="#elements">Elements</a></div><div class="mg"><div class="lab">Play</div><a href="#pile">Poster pile</a><a href="#tag">Tag the wall</a></div><div class="mg"><a href="#crew">Crew</a></div></div>
 
-<header class="hero" id="top">
-  <div id="heroimg" style="position:absolute;inset:0;will-change:transform"><img class="base" src="img/tbw_5970.webp" alt="Aavartan dancers"><img class="rev" id="herorev" src="img/t_5970.webp" alt=""></div>
-  <div class="in pad">
-    <div class="lab" style="margin-bottom:22px;color:#fff;text-shadow:0 1px 12px #000">Aavartan — the dance society of IIITDM Jabalpur</div>
-    <h1 class="blk"><span><i>One floor.</i></span><span><i class="v">Five styles.</i></span></h1>
-    <div class="meta"><div class="marks" id="hemb"></div><div class="lab">Breaking · Hip hop · Contemporary · Classical · Mass</div></div>
-  </div>
+<header class="hero hero2" id="top">
+  <div id="heroimg" class="wallanim"><img class="wf on" src="img/wall_0.webp" alt="Aavartan Dance Society graffiti tag"><img class="wf" src="img/wall_1.webp" alt=""><img class="wf" src="img/wall_2.webp" alt=""><img class="wf" src="img/wall_3.webp" alt=""><img class="wf" src="img/wall_4.webp" alt=""><img class="wf" src="img/wall_5.webp" alt=""></div><img id="herorev" alt="" style="display:none"><div id="hemb" style="display:none"></div>
+  <div class="hb pad"><div class="lab">The dance society of IIITDM Jabalpur<br><span style="opacity:.6">Since 2010</span></div><div class="lab" style="text-align:right">Breaking · Hip hop · Contemporary<br>Classical · Mass</div></div>
+  <div class="cue lab">Scroll <i>↓</i></div>
 </header>
 <div class="tick"><div class="row" id="t1"></div></div>
 
@@ -713,7 +728,7 @@ nav .brand .cred{font:600 9px Phudu;letter-spacing:.12em;opacity:.6;margin-left:
   <div class="credline">Brand identity &amp; website designed by Heramb Bhavsar · 2026</div>
 </footer>
 <div class="tick rev"><div class="row" id="t4"></div></div>
-<div id="cur"></div><div id="toast"></div><div id="lb"><img alt=""></div>
+<div id="grid" aria-hidden="true"><i class="e" style="left:var(--m)"></i><i style="left:calc(var(--m) + (100% - 2*var(--m))*.25)"></i><i style="left:calc(var(--m) + (100% - 2*var(--m))*.5)"></i><i style="left:calc(var(--m) + (100% - 2*var(--m))*.75)"></i><i class="e" style="right:var(--m)"></i></div><div id="cur"></div><div id="toast"></div><div id="lb"><img alt=""></div>
 
 <script>
 try{window.claude&&claude.use&&claude.use('downloads').then(d=>{window.__dls=d}).catch(()=>{})}catch(e){}
@@ -984,6 +999,11 @@ $('#burger').onclick=()=>document.body.classList.toggle('mopen');$$('.mnav a').f
 (function(){const st=$('#evstage');const orig=[...st.children];const mq=matchMedia('(max-width:800px)');
 function build(){st.innerHTML='';if(mq.matches){const tr=document.createElement('div');tr.className='evtrack';orig.forEach(c=>tr.appendChild(c));orig.forEach(c=>{const k=c.cloneNode(true);k.setAttribute('aria-hidden','true');k.addEventListener('click',()=>lb(k.dataset.z));tr.appendChild(k)});st.appendChild(tr)}else orig.forEach(c=>st.appendChild(c))}
 build();mq.addEventListener('change',build)})();
+
+// hero stop-motion wall frames
+(function(){const fr=$$('#heroimg .wf');let i=0,last=0;const hero=$('.hero2');
+function tick(t){const r=hero.getBoundingClientRect();if(r.bottom>0&&t-last>170){last=t;fr[i].classList.remove('on');i=(i+1)%fr.length;const f=fr[i];f.style.transform=`translate(${(Math.random()-.5)*10}px,${(Math.random()-.5)*8}px) rotate(${(Math.random()-.5)*.6}deg)`;f.classList.add('on')}requestAnimationFrame(tick)}
+fr.forEach(f=>{const im=new Image();im.src=f.src});requestAnimationFrame(tick)})();
 
 </script>
 </body>
