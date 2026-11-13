@@ -566,7 +566,7 @@ body.navlt #navbg{background:linear-gradient(#f2f0ebe6,#f2f0eb99 55%,#f2f0eb00)}
 
 <header class="hero hero2" id="top">
   <div id="heroimg" class="wallanim"><img class="wf on" src="img/wall_0.webp" alt="Aavartan Dance Society graffiti tag"><img class="wf" src="img/wall_1.webp" alt=""><img class="wf" src="img/wall_2.webp" alt=""><img class="wf" src="img/wall_3.webp" alt=""><img class="wf" src="img/wall_4.webp" alt=""><img class="wf" src="img/wall_5.webp" alt=""></div><img id="herorev" alt="" style="display:none"><div id="hemb" style="display:none"></div>
-  <div class="hb pad"><div class="lab">The dance society of IIITDM Jabalpur<br><span style="opacity:.6">Since 2010</span></div><div class="lab" style="text-align:right">Breaking · Hip hop · Contemporary<br>Classical · Mass</div></div>
+  <div class="hb pad"><div class="lab">The dance society of IIITDM Jabalpur<br><span style="opacity:.6">Since 2010</span></div><div class="lab" style="text-align:right">Breaking · Classical · Hip hop<br>Mass · Contemporary</div></div>
   <div class="cue lab">Scroll <i>↓</i></div>
 </header>
 <div class="tick"><div class="row" id="t1"></div></div>
@@ -822,7 +822,7 @@ try{window.claude&&claude.use&&claude.use('downloads').then(d=>{window.__dls=d})
 
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 // tickers
-const DF=['Breaking','Hip hop','Contemporary','Classical','Mass','Popping','Locking','Krump','House','Freestyle','Kathak','Bharatanatyam'];
+const DF=['Breaking','Classical','Hip hop','Mass','Contemporary','Popping','Locking','Krump','House','Freestyle','Kathak','Bharatanatyam'];
 ['t1','t2','t3','t4'].forEach((id,n)=>{const L=DF.slice(n*3).concat(DF.slice(0,n*3));const tk=L.map((w,i)=>`<b class="${i%2?'s':'l'}">${w}</b><b class="s">✶</b>`).join('');$("#"+id).innerHTML=tk.repeat(4)});
 // progress + hero parallax
 const bar=$('#bar'),hi=$('#heroimg');
@@ -841,7 +841,7 @@ cmp.addEventListener('pointerdown',e=>{drag=true;cmp.setPointerCapture(e.pointer
 // gentle auto-sweep once when visible
 new IntersectionObserver((es,o)=>{es.forEach(e=>{if(e.isIntersecting){o.disconnect(); let t=0; const r=cmp.getBoundingClientRect(); const iv=setInterval(()=>{if(drag){clearInterval(iv);return} t+=.02; const p=.5+Math.sin(t*2)*.38; setC(cmp.getBoundingClientRect().left+p*cmp.getBoundingClientRect().width); if(t>3.2){clearInterval(iv)}},16)}})},{threshold:.5}).observe(cmp);
 // cast
-const F=[['break','Breaking','#4080C6','The floor king','Spin on your head,','own the floor instead.'],['hiphop','Hip hop','#E58139','The bounce','Bounce the beat,','burn the street.'],['contemp','Contemporary','#4FAE4A','The float','Float like air,','land with flair.'],['classical','Classical','#D95092','The grace','Eyes on the beat,','grace on your feet.'],['mass','Mass','#FFE000','The crowd','Bring the crew,','shake the venue.']];
+const F=[['break','Breaking','#4080C6','The floor king','Spin on your head,','own the floor instead.'],['classical','Classical','#D95092','The grace','Eyes on the beat,','grace on your feet.'],['hiphop','Hip hop','#E58139','The bounce','Bounce the beat,','burn the street.'],['mass','Mass','#FFE000','The crowd','Bring the crew,','shake the venue.'],['contemp','Contemporary','#4FAE4A','The float','Float like air,','land with flair.']];
 let cur=0; const chars=$('#chars');
 F.forEach((f,i)=>{const b=document.createElement('button'); b.className='ch'; b.style.setProperty('--c',f[2]); b.innerHTML=`<img src="img/c_${f[0]}.webp" alt="${f[1]} character"><div class="nm"><span class="dot"></span><span class="lab">${f[1]}</span></div><div class="bt">${f[3]}</div>`; b.onclick=()=>show(i); chars.appendChild(b);});
 function show(i){cur=(i+5)%5; const f=F[cur]; document.documentElement.style.setProperty('--acc',f[2]==='#FFE000'?'#B39C00':f[2]); $$('.ch').forEach((c,j)=>c.classList.toggle('on',j===cur)); const im=$('#pimg'); im.classList.add('out'); setTimeout(()=>{im.src=`img/p_${f[0]}.webp`; im.onload=()=>im.classList.remove('out')},220); $('#pn').textContent=`0${cur+1} / 05 — ${f[1]} · Footloose 1v1 poster`; $('#ph').textContent=f[3]; $('#pl').innerHTML=`${f[4]}<br><b>${f[5]}</b>`;}
@@ -895,7 +895,7 @@ hov('.play img','Drag');
 const wall=$('#wall'),wc=$('#wc'),ctx=wc.getContext('2d');let col='#9C33C5',drawing=false,px=0,py=0,dpr=Math.min(2,devicePixelRatio||1);
 function sizeW(){const r=wall.getBoundingClientRect();const img=ctx.getImageData?null:null;const tmp=document.createElement('canvas');tmp.width=wc.width;tmp.height=wc.height;tmp.getContext('2d').drawImage(wc,0,0);wc.width=r.width*dpr;wc.height=r.height*dpr;ctx.drawImage(tmp,0,0)}
 sizeW();addEventListener('resize',sizeW);
-const COLS=['#9C33C5','#FFFFFF','#4080C6','#E58139','#4FAE4A','#D95092','#FFE000'];
+const COLS=['#9C33C5','#FFFFFF','#4080C6','#D95092','#E58139','#FFE000','#4FAE4A'];
 COLS.forEach((c,i)=>{const b=document.createElement('button');b.style.setProperty('--c',c);b.setAttribute('aria-label','Spray colour '+c);if(!i)b.classList.add('on');b.onclick=()=>{col=c;$$('#cans button').forEach(x=>x.classList.toggle('on',x===b))};$('#cans').appendChild(b)});
 function spray(x,y,s){ctx.fillStyle=col;const R=22*dpr*s;for(let i=0;i<46;i++){const a=Math.random()*6.283,d=Math.random()*Math.random()*R;ctx.globalAlpha=.55;ctx.fillRect(x+Math.cos(a)*d,y+Math.sin(a)*d,1.6*dpr,1.6*dpr)}ctx.globalAlpha=.9;ctx.beginPath();ctx.arc(x,y,R*.32,0,6.283);ctx.fill();
  if(Math.random()<.035){let dy=0,dx=x+(Math.random()-.5)*R*.4;const len=(30+Math.random()*90)*dpr;ctx.globalAlpha=.85;ctx.fillRect(dx,y,2.4*dpr,len);ctx.beginPath();ctx.arc(dx+1.2*dpr,y+len,3*dpr,0,6.283);ctx.fill()}ctx.globalAlpha=1}
@@ -1045,7 +1045,7 @@ try{$('#hemb').innerHTML=window.__aavSvg('em','og',{pad:0})}catch(e){}
  btn.onclick=()=>{const open=grid.classList.toggle('closed');btn.setAttribute('aria-expanded',String(!open))}});
 // colours
 $$('.sw[data-hex]').forEach(s=>s.addEventListener('click',async()=>{const hx=s.dataset.hex;try{await navigator.clipboard.writeText(hx)}catch(e){}toast('Copied '+hx)}));
-const SS=[['break','Breaking','#4080C6'],['hiphop','Hip hop','#E58139'],['contemp','Contemporary','#4FAE4A'],['classical','Classical','#D95092'],['mass','Mass','#FFE000']];
+const SS=[['break','Breaking','#4080C6'],['classical','Classical','#D95092'],['hiphop','Hip hop','#E58139'],['mass','Mass','#FFE000'],['contemp','Contemporary','#4FAE4A']];
 const rgb=h=>[1,3,5].map(i=>parseInt(h.substr(i,2),16)).join(' ');
 const sb=$('#stylebtns');SS.forEach(([k,n,c],i)=>{const b=document.createElement('button');b.style.background=c;b.innerHTML=`${n}<span>${c}</span>`;b.onclick=()=>pick(i);sb.appendChild(b)});
 function pick(i){const [k,n,c]=SS[i];$$('#stylebtns button').forEach((b,j)=>b.classList.toggle('on',j===i));$('#sprev').style.setProperty('--sc',c);$('#spn').textContent=n;$('#spv').innerHTML=`HEX ${c}<br>RGB ${rgb(c)}<br>Lives inside the dancer only`;$('#spa').src=`img/c_${k}.webp`;$('#spp').src=`img/p_${k}.webp`}
