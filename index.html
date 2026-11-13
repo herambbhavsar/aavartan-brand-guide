@@ -503,6 +503,23 @@ nav .brand .cred{font:600 9px Phudu;letter-spacing:.12em;opacity:.6;margin-left:
 /* grid lines live in section backgrounds, under components */
 section,footer{--gl:#ffffff17;background-image:linear-gradient(90deg,#0000 calc(var(--m) - 1px),var(--gl) calc(var(--m) - 1px),var(--gl) var(--m),#0000 var(--m)),linear-gradient(90deg,#0000 calc(calc(var(--m) + (100% - 2*var(--m))*0.25) - 1px),var(--gl) calc(calc(var(--m) + (100% - 2*var(--m))*0.25) - 1px),var(--gl) calc(var(--m) + (100% - 2*var(--m))*0.25),#0000 calc(var(--m) + (100% - 2*var(--m))*0.25)),linear-gradient(90deg,#0000 calc(calc(var(--m) + (100% - 2*var(--m))*0.5) - 1px),var(--gl) calc(calc(var(--m) + (100% - 2*var(--m))*0.5) - 1px),var(--gl) calc(var(--m) + (100% - 2*var(--m))*0.5),#0000 calc(var(--m) + (100% - 2*var(--m))*0.5)),linear-gradient(90deg,#0000 calc(calc(var(--m) + (100% - 2*var(--m))*0.75) - 1px),var(--gl) calc(calc(var(--m) + (100% - 2*var(--m))*0.75) - 1px),var(--gl) calc(var(--m) + (100% - 2*var(--m))*0.75),#0000 calc(var(--m) + (100% - 2*var(--m))*0.75)),linear-gradient(90deg,#0000 calc(calc(100% - var(--m) + 1px) - 1px),var(--gl) calc(calc(100% - var(--m) + 1px) - 1px),var(--gl) calc(100% - var(--m) + 1px),#0000 calc(100% - var(--m) + 1px))!important}
 section.light,section.cast,.ev-after{--gl:#00000014}
+/* stats sit on the 4-column grid */
+.stats{grid-template-columns:repeat(4,1fr)!important;border:0!important}
+.stats>div{border:0!important;border-radius:0!important;padding:clamp(40px,6vw,90px) clamp(14px,1.6vw,24px)!important}
+.stats .n{font-size:clamp(60px,9vw,150px)!important}
+@media(max-width:700px){.stats{grid-template-columns:1fr 1fr!important}}
+.stats>div>div{padding:0!important;border:0!important}
+/* colour bento: one even gap */
+.sys{max-width:none!important}
+.swc,.styles,.sprev{gap:14px!important}
+.styles button,.styles button.on{height:58px!important}
+.styles button.on{outline:3px solid #fff;outline-offset:-3px}
+.sprev .pv{max-height:none}
+/* breathing room after the kit */
+#merch{padding-bottom:clamp(70px,9vw,140px)}
+/* nav over paper sections */
+#navbg{transition:background .3s}
+body.navlt #navbg{background:linear-gradient(#f2f0ebe6,#f2f0eb99 55%,#f2f0eb00)}
 #grid{display:none}
 </style>
 </head>
@@ -676,10 +693,11 @@ section.light,section.cast,.ev-after{--gl:#00000014}
   <div class="sh pad"><h2 class="reg scr">The poster pile</h2><p class="note">Drag posters around. Double-click to open one.</p></div>
   <div class="play" id="play"><div class="hint lab">Drag · Double-click</div></div>
 </section>
-<section class="stats">
+<section class="stats pad">
   <div><div class="n" data-c="5">0</div><div class="lab" style="margin-top:16px">Styles</div></div>
   <div><div class="n" data-c="1">0</div><div class="lab" style="margin-top:16px">Floor</div></div>
   <div><div class="n">∞</div><div class="lab" style="margin-top:16px">Excuses accepted: zero</div></div>
+  <div><div class="n">1v1</div><div class="lab" style="margin-top:16px">Footloose battle format</div></div>
 </section>
 
 <section class="pad">
@@ -822,7 +840,7 @@ $$('.ch,.stage .post').forEach(el=>{el.classList.add('tilt');el.addEventListener
 // ===== magnetic buttons =====
 $$('.stage .ctl button,.toggle button,.wall .act button').forEach(b=>{b.addEventListener('pointermove',e=>{const r=b.getBoundingClientRect();b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.3}px,${(e.clientY-r.top-r.height/2)*.3}px)`});b.addEventListener('pointerleave',()=>b.style.transform='')});
 // ===== poster pile =====
-const play=$('#play');const PP=[['poster_move',.03,.05,-7],['p_break',.24,.02,5],['poster_drop',.46,.07,-4],['p_hiphop',.68,.03,6],['p_contemp',.06,.47,4],['poster_05',.3,.44,-6],['p_classical',.52,.5,3],['p_mass',.73,.45,-5],['p_violet',.4,.25,2],['old_3_12',.15,.27,-9],['old_1_121',.62,.24,8],['old_3_135',.84,.62,-3]];let Z=10;
+const play=$('#play');const PP=[['poster_move',.03,.05,-7],['p_break',.24,.02,5],['poster_drop',.46,.07,-4],['p_hiphop',.68,.03,6],['p_contemp',.06,.47,4],['poster_05',.3,.44,-6],['p_classical',.52,.5,3],['p_mass',.73,.45,-5],['p_violet',.4,.25,2],['old_3_12',.15,.27,-9],['old_1_121',.62,.24,8],['old_3_135',.84,.62,-3]].map(([k,x,y,r])=>[k,.27+x*.38,.1+y*.55,r*1.6]);let Z=10;
 PP.forEach(([k,x,y,r])=>{const im=new Image();im.src=`img/${k}.webp`;im.alt='';im.draggable=false;im.style.left=x*100+'%';im.style.top=y*100+'%';im.style.transform=`rotate(${r}deg)`;play.appendChild(im);let sx,sy,ox,oy,m=false,vx=0,vy=0,lx,ly;
  im.addEventListener('pointerdown',e=>{m=true;im.setPointerCapture(e.pointerId);im.style.zIndex=++Z;sx=lx=e.clientX;sy=ly=e.clientY;ox=im.offsetLeft;oy=im.offsetTop;im.style.transition='transform .15s';im.style.transform=`rotate(${r*.3}deg) scale(1.06)`});
  im.addEventListener('pointermove',e=>{if(!m)return;vx=e.clientX-lx;vy=e.clientY-ly;lx=e.clientX;ly=e.clientY;im.style.left=ox+e.clientX-sx+'px';im.style.top=oy+e.clientY-sy+'px'});
@@ -1031,5 +1049,8 @@ function tick(t){const r=hero.getBoundingClientRect();if(r.bottom>0&&t-last>170)
 fr.forEach(f=>{const im=new Image();im.src=f.src});requestAnimationFrame(tick)})();
 
 </script>
+<script>(()=>{const lum=c=>{const m=c.match(/\d+(\.\d+)?/g);if(!m||(m[3]!==undefined&&+m[3]<.5))return null;return(.299*m[0]+.587*m[1]+.114*m[2])/255};
+const chk=()=>{let lt=false;for(const el of document.elementsFromPoint(innerWidth/2,40)){if(el.closest('nav,#navbg,.navdrop,#bar,#cur'))continue;let e=el,L=null;while(e&&e!==document.documentElement){L=lum(getComputedStyle(e).backgroundColor);if(L!==null)break;e=e.parentElement}if(L!==null){lt=L>.6;break}}document.body.classList.toggle('navlt',lt)};
+addEventListener('scroll',()=>requestAnimationFrame(chk),{passive:true});addEventListener('resize',chk);setTimeout(chk,300)})();</script>
 </body>
 </html>
