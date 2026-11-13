@@ -553,6 +553,8 @@ body.navlt #navbg{background:linear-gradient(#f2f0ebe6,#f2f0eb99 55%,#f2f0eb00)}
 .end .team ul{display:grid!important;grid-template-columns:repeat(4,1fr);gap:12px 0!important}
 .end .team li{padding-right:12px}
 @media(max-width:600px){.end .team ul{grid-template-columns:repeat(2,1fr)}}
+.end .team li.am{grid-column:-2}
+nav .brand .cred{margin-left:2px!important;white-space:nowrap}
 #grid{display:none}
 </style>
 </head>
@@ -561,8 +563,8 @@ body.navlt #navbg{background:linear-gradient(#f2f0ebe6,#f2f0eb99 55%,#f2f0eb00)}
 <div id="navbg" aria-hidden="true"></div>
 <nav>
   <a class="brand" href="#top"><img src="img/amark.svg" alt="">AAVARTAN<span class="cred">Designed by Heramb Bhavsar</span></a>
-  <ul><li class="grp" data-g="0"><a href="#about">Brand <i>▾</i></a></li><li class="grp" data-g="1"><a href="#cast">Characters <i>▾</i></a></li><li class="grp" data-g="2"><a href="#events">Posters <i>▾</i></a></li><li class="grp" data-g="3"><a href="#wild">In use <i>▾</i></a></li><li class="grp" data-g="4"><a href="#pile">Play <i>▾</i></a></li><li><a href="#crew">Crew</a></li></ul><button class="burger" id="burger" aria-label="Menu"><span></span><span></span></button>
-</nav><div class="navdrop" id="nd0"><a href="#about">About</a><a href="#logo">Logo</a><a href="#system">Colour & type</a></div><div class="navdrop" id="nd1"><a href="#cast">Dance forms</a><a href="#mascot">Mascot</a></div><div class="navdrop" id="nd2"><a href="#events">Events</a><a href="#posters">Poster wall</a><a href="#archive">Archive</a></div><div class="navdrop" id="nd3"><a href="#wild">Mockups</a><a href="#merch">The kit</a><a href="#elements">Elements</a></div><div class="navdrop" id="nd4"><a href="#pile">Poster pile</a><a href="#tag">Tag the wall</a></div><div class="mnav" id="mnav"><div class="mg"><div class="lab">Brand</div><a href="#about">About</a><a href="#logo">Logo</a><a href="#system">Colour & type</a></div><div class="mg"><div class="lab">Characters</div><a href="#cast">Dance forms</a><a href="#mascot">Mascot</a></div><div class="mg"><div class="lab">Posters</div><a href="#events">Events</a><a href="#posters">Poster wall</a><a href="#archive">Archive</a></div><div class="mg"><div class="lab">In use</div><a href="#wild">Mockups</a><a href="#merch">The kit</a><a href="#elements">Elements</a></div><div class="mg"><div class="lab">Play</div><a href="#pile">Poster pile</a><a href="#tag">Tag the wall</a></div><div class="mg"><a href="#crew">Crew</a></div></div>
+  <ul><li class="grp" data-g="0"><a href="#about">Brand <i>▾</i></a></li><li class="grp" data-g="1"><a href="#cast">Characters <i>▾</i></a></li><li class="grp" data-g="2"><a href="#events">Posters <i>▾</i></a></li><li class="grp" data-g="3"><a href="#wild">In use <i>▾</i></a></li><li><a href="#crew">Crew</a></li></ul><button class="burger" id="burger" aria-label="Menu"><span></span><span></span></button>
+</nav><div class="navdrop" id="nd0"><a href="#about">About</a><a href="#logo">Logo</a><a href="#system">Colour & type</a></div><div class="navdrop" id="nd1"><a href="#cast">Dance forms</a><a href="#mascot">Mascot</a></div><div class="navdrop" id="nd2"><a href="#events">Events</a><a href="#posters">Poster wall</a><a href="#archive">Archive</a></div><div class="navdrop" id="nd3"><a href="#wild">Mockups</a><a href="#merch">The kit</a><a href="#elements">Elements</a></div><div class="mnav" id="mnav"><div class="mg"><div class="lab">Brand</div><a href="#about">About</a><a href="#logo">Logo</a><a href="#system">Colour & type</a></div><div class="mg"><div class="lab">Characters</div><a href="#cast">Dance forms</a><a href="#mascot">Mascot</a></div><div class="mg"><div class="lab">Posters</div><a href="#events">Events</a><a href="#posters">Poster wall</a><a href="#archive">Archive</a></div><div class="mg"><div class="lab">In use</div><a href="#wild">Mockups</a><a href="#merch">The kit</a><a href="#elements">Elements</a></div><div class="mg"><a href="#crew">Crew</a></div></div>
 
 <header class="hero hero2" id="top">
   <div id="heroimg" class="wallanim"><img class="wf on" src="img/wall_0.webp" alt="Aavartan Dance Society graffiti tag"><img class="wf" src="img/wall_1.webp" alt=""><img class="wf" src="img/wall_2.webp" alt=""><img class="wf" src="img/wall_3.webp" alt=""><img class="wf" src="img/wall_4.webp" alt=""><img class="wf" src="img/wall_5.webp" alt=""></div><img id="herorev" alt="" style="display:none"><div id="hemb" style="display:none"></div>
@@ -811,7 +813,7 @@ body.navlt #navbg{background:linear-gradient(#f2f0ebe6,#f2f0eb99 55%,#f2f0eb00)}
   <div class="lab v">Thank you — see you in the circle</div>
   <div class="huge">AAVARTAN</div>
   <div class="row lab"><span>The dance society of IIITDM Jabalpur</span><span>@aavartan_iiitdmj</span></div>
-  <div class="team"><div class="lab v">Aavartan design team</div><ul><li>Heramb Bhavsar</li><li>Karan <i>(Amazer)</i></li><li>Akshita Gattu</li><li>Samridhna</li><li>Saara</li><li>Rujula Dhake</li><li>Priya Gaur</li><li>Rachita Barve</li></ul><ul class="more"><li>Khusi</li><li>Addidev</li><li>Anantan</li><li>Yashika</li><li>and more</li></ul></div>
+  <div class="team"><div class="lab v">Aavartan design team</div><ul><li>Heramb Bhavsar</li><li>Karan <i>(Amazer)</i></li><li>Akshita Gattu</li><li>Samridhna</li><li>Saara</li><li>Rujula Dhake</li><li>Priya Gaur</li><li>Rachita Barve</li></ul><ul class="more"><li>Khusi</li><li>Addidev</li><li>Anantan</li><li>Yashika</li><li class="am">and more</li></ul></div>
   <div class="credline">Brand identity &amp; website designed by Heramb Bhavsar · 2026</div>
 </footer>
 <div class="tick rev"><div class="row" id="t4"></div></div>
